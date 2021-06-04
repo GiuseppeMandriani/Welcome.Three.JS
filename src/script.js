@@ -175,6 +175,13 @@ function onDocumentMouseMove(event) {
     mouseY = (event.clientY - windowY)
 }
 
+
+const updateSphere = (event) => {
+    sphere.position.y = window.scrollY * .005
+}
+
+window.addEventListener('scroll', updateSphere);
+
 const clock = new THREE.Clock()
 
 const tick = () => {
@@ -189,7 +196,7 @@ const tick = () => {
 
     sphere.rotation.y += .5 * (targetX - sphere.rotation.y)
     sphere.rotation.x += .05 * (targetY - sphere.rotation.x)
-    sphere.rotation.z += -.05 * (targetY - sphere.rotation.x)
+    sphere.position.z += -.05 * (targetY - sphere.rotation.x)
 
 
 
